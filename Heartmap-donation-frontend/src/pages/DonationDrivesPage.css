@@ -1,0 +1,54 @@
+.donation-drives-page {
+  min-height: 100vh;
+  background: #f7f9f8;
+}
+
+.drives-intro {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 48px 24px 8px;
+}
+
+.drives-intro-copy { max-width: 680px; }
+.drives-kicker {
+  margin: 0 0 10px;
+  color: #16875c;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+}
+.drives-intro h1 {
+  margin: 0 0 10px;
+  color: #164f42;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.05;
+}
+.drives-intro p:not(.drives-kicker) {
+  margin: 0;
+  color: #557269;
+  line-height: 1.6;
+}
+.drives-tool-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(135px, 1fr));
+  gap: 8px;
+  min-width: 300px;
+}
+.drives-tool-list span {
+  padding: 11px 12px;
+  border: 1px solid #dceae3;
+  border-radius: 10px;
+  background: #fff;
+  color: #33584e;
+  font-size: .82rem;
+  font-weight: 600;
+}
+
+@media (max-width: 700px) {
+  .drives-intro { display: block; padding-top: 32px; }
+  .drives-tool-list { min-width: 0; margin-top: 22px; }
+}

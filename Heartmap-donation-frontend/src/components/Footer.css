@@ -1,0 +1,668 @@
+/* ==========================================================================
+   HEARTMAP MODERN ANIMATED GREEN FOOTER (SLEEK & COMPACT SKYLINE DESIGN)
+   ========================================================================== */
+
+.green-footer-master {
+  position: relative;
+  width: 100%;
+  background: #091d20;
+  color: #fbf8f2;
+  overflow: hidden;
+  margin-top: auto;
+  margin-bottom: 0 !important;
+  padding-bottom: 0;
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+}
+
+/* --------------------------------------------------------------------------
+   1. TOP SKYLINE & ANIMATIONS (Organic curved wave + floating heart balloon)
+   -------------------------------------------------------------------------- */
+.footer-skyline-wrap {
+  position: relative;
+  width: 100%;
+  height: 65px;
+  background: var(--color-cream-bg, #fbf8f2);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .footer-skyline-wrap {
+    height: 85px;
+  }
+}
+
+.skyline-svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  vertical-align: bottom;
+  z-index: 2;
+}
+
+/* Floating Hot Air Heart Balloon */
+.skyline-floating-balloon {
+  position: absolute;
+  top: 5px;
+  left: 35%;
+  z-index: 3;
+  animation: balloonFloat 5s ease-in-out infinite;
+  filter: drop-shadow(0 4px 8px rgba(14, 41, 44, 0.25));
+}
+
+@keyframes balloonFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+/* Drifting Horizon Clouds */
+.skyline-cloud {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.skyline-cloud::before,
+.skyline-cloud::after {
+  content: '';
+  position: absolute;
+  background: inherit;
+  border-radius: 50%;
+}
+
+.skyline-cloud-1 {
+  top: 10px;
+  width: 55px;
+  height: 16px;
+  animation: cloudDriftSlow 45s linear infinite;
+  opacity: 0.65;
+}
+.skyline-cloud-1::before {
+  width: 22px;
+  height: 22px;
+  top: -10px;
+  left: 10px;
+}
+.skyline-cloud-1::after {
+  width: 15px;
+  height: 15px;
+  top: -6px;
+  left: 26px;
+}
+
+.skyline-cloud-2 {
+  top: 24px;
+  width: 75px;
+  height: 18px;
+  animation: cloudDriftFast 32s linear infinite;
+  animation-delay: -10s;
+  opacity: 0.5;
+}
+.skyline-cloud-2::before {
+  width: 26px;
+  height: 26px;
+  top: -12px;
+  left: 14px;
+}
+.skyline-cloud-2::after {
+  width: 18px;
+  height: 18px;
+  top: -8px;
+  left: 36px;
+}
+
+.skyline-cloud-3 {
+  top: 8px;
+  width: 45px;
+  height: 14px;
+  animation: cloudDriftSlow 55s linear infinite;
+  animation-delay: -22s;
+  opacity: 0.45;
+}
+.skyline-cloud-3::before {
+  width: 18px;
+  height: 18px;
+  top: -8px;
+  left: 8px;
+}
+.skyline-cloud-3::after {
+  width: 12px;
+  height: 12px;
+  top: -5px;
+  left: 22px;
+}
+
+@keyframes cloudDriftSlow {
+  0% {
+    transform: translateX(-100px);
+  }
+  100% {
+    transform: translateX(1600px);
+  }
+}
+
+@keyframes cloudDriftFast {
+  0% {
+    transform: translateX(-120px);
+  }
+  100% {
+    transform: translateX(1600px);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. MAIN GREEN FOOTER BODY (COMPACT PADDING)
+   -------------------------------------------------------------------------- */
+.green-footer-body {
+  background: linear-gradient(180deg, #0e292c 0%, #091d20 50%, #061517 100%);
+  padding: 1.5rem 1.25rem 1rem;
+  position: relative;
+  z-index: 5;
+}
+
+.green-footer-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* --------------------------------------------------------------------------
+   3. FOOTER TOP GRID: Newsletter (Left) + Nav Links (Right)
+   -------------------------------------------------------------------------- */
+.footer-top-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (min-width: 1024px) {
+  .footer-top-grid {
+    grid-template-columns: 1.15fr 2fr;
+    gap: 3rem;
+  }
+}
+
+/* Newsletter Column */
+.footer-newsletter-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.footer-brand-lockup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.footer-brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ffb380;
+  background: rgba(217, 119, 54, 0.15);
+  border: 1px solid rgba(217, 119, 54, 0.3);
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  width: fit-content;
+  margin-bottom: 0.25rem;
+}
+
+.footer-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #52b788;
+  box-shadow: 0 0 6px #52b788;
+  animation: beaconPulse 2s ease-in-out infinite;
+}
+
+.footer-newsletter-title {
+  font-family: var(--font-heading, 'Playfair Display', Georgia, serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.footer-highlight {
+  font-style: italic;
+  color: #ffb380;
+}
+
+.footer-newsletter-sub {
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: #a3c2be;
+  margin: 0;
+}
+
+/* Newsletter Input Form */
+.footer-newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.newsletter-input-group {
+  display: flex;
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  padding: 0.25rem 0.25rem 0.25rem 1rem;
+  transition: all 0.25s ease;
+  max-width: 440px;
+}
+
+.newsletter-input-group:focus-within {
+  border-color: #52b788;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 2px rgba(82, 183, 136, 0.2);
+}
+
+.footer-email-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 0.84rem;
+  color: #ffffff;
+  font-family: inherit;
+}
+
+.footer-email-input::placeholder {
+  color: #799a94;
+}
+
+.footer-subscribe-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #d97736;
+  color: #ffffff;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 3px 10px rgba(217, 119, 54, 0.3);
+}
+
+.footer-subscribe-btn:hover {
+  background: #e58645;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(217, 119, 54, 0.45);
+}
+
+.footer-form-error {
+  font-size: 0.78rem;
+  color: #ff8585;
+  margin: 0;
+  padding-left: 0.4rem;
+}
+
+.newsletter-privacy-note {
+  font-size: 0.74rem;
+  color: #6e8d88;
+  margin-top: 0.1rem;
+  padding-left: 0.4rem;
+}
+
+.newsletter-success-toast {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(45, 106, 79, 0.25);
+  border: 1px solid #52b788;
+  padding: 0.65rem 1rem;
+  border-radius: 10px;
+  animation: fadeIn 0.3s ease-out;
+  max-width: 440px;
+}
+
+.newsletter-success-toast .success-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #52b788;
+  color: #0e292c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.8rem;
+}
+
+.newsletter-success-toast strong {
+  display: block;
+  font-size: 0.84rem;
+  color: #ffffff;
+}
+
+.newsletter-success-toast p {
+  margin: 0;
+  font-size: 0.76rem;
+  color: #b7e4c7;
+}
+
+/* Social Row */
+.footer-social-section {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.social-row-label {
+  font-size: 0.76rem;
+  color: #799a94;
+  font-weight: 500;
+}
+
+.footer-social-links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.green-social-pill {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #cbd5e1;
+  font-size: 0.82rem;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.green-social-pill:hover {
+  background: #2d6a4f;
+  border-color: #52b788;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(45, 106, 79, 0.4);
+}
+
+/* --------------------------------------------------------------------------
+   4. NAVIGATION COLUMNS (COMPACT)
+   -------------------------------------------------------------------------- */
+.footer-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem 1rem;
+}
+
+@media (min-width: 640px) {
+  .footer-nav-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem 1rem;
+  }
+}
+
+.footer-links-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-col-heading {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+  margin: 0;
+  position: relative;
+  padding-bottom: 0.3rem;
+}
+
+.footer-col-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 18px;
+  height: 2px;
+  background: #d97736;
+  border-radius: 2px;
+}
+
+.footer-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.footer-nav-list button {
+  background: none;
+  border: none;
+  color: #9cb5b1;
+  font-size: 0.8rem;
+  font-family: inherit;
+  text-align: left;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.footer-nav-list button:hover {
+  color: #ffb380;
+  transform: translateX(3px);
+}
+
+.footer-nav-static {
+  font-size: 0.78rem;
+  color: #799a94;
+  font-style: italic;
+}
+
+/* Contact Column */
+.footer-contact-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: #a3c2be;
+}
+
+.contact-icon {
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.contact-link {
+  color: #52b788;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.contact-link:hover {
+  color: #ffb380;
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   5. TRUST BADGES STRIP (COMPACT INLINE PILLS)
+   -------------------------------------------------------------------------- */
+.footer-trust-badges-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.65rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.trust-badge-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 0.45rem 0.65rem;
+  transition: all 0.2s ease;
+}
+
+.trust-badge-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(82, 183, 136, 0.3);
+  transform: translateY(-1px);
+}
+
+.trust-badge-icon {
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.trust-badge-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.trust-badge-text strong {
+  font-size: 0.75rem;
+  color: #ffffff;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.trust-badge-text small {
+  font-size: 0.66rem;
+  color: #82a39d;
+  margin-top: 1px;
+}
+
+/* --------------------------------------------------------------------------
+   6. BOTTOM BAR (STATUS + COPYRIGHT + COMPACT LINKS)
+   -------------------------------------------------------------------------- */
+.footer-bottom-bar-green {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.85rem;
+  font-size: 0.76rem;
+  color: #799a94;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .footer-bottom-bar-green {
+    flex-direction: row;
+    text-align: left;
+  }
+}
+
+.bottom-network-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(45, 106, 79, 0.2);
+  border: 1px solid rgba(82, 183, 136, 0.25);
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  color: #cbd5e1;
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+.status-live-beacon {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #52b788;
+  box-shadow: 0 0 8px #52b788;
+  animation: beaconPulse 1.8s infinite;
+}
+
+@keyframes beaconPulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(82, 183, 136, 0.7);
+  }
+  70% {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 5px rgba(82, 183, 136, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(82, 183, 136, 0);
+  }
+}
+
+.bottom-copyright {
+  font-size: 0.74rem;
+  color: #82a39d;
+}
+
+.bottom-legal-links {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.bottom-legal-links button {
+  background: none;
+  border: none;
+  color: #82a39d;
+  font-size: 0.74rem;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.bottom-legal-links button:hover {
+  color: #ffb380;
+}
+
+.legal-dot {
+  color: #3b5a55;
+  font-size: 0.6rem;
+}
+
+/* Animations Helper */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

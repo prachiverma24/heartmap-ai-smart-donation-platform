@@ -1,0 +1,235 @@
+.orbit-container {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  user-select: none;
+}
+
+/* SVG Ellipse Track */
+.orbit-svg-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Center Content Anchor */
+.orbit-center-anchor {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+}
+
+/* Layer holding all orbiting items */
+.orbit-items-layer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+}
+
+/* Individual Orbiting Item Container - centered via translate(-50%, -50%) */
+.orbit-item-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  cursor: pointer;
+  transition: transform 0.15s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.2s ease;
+  will-change: transform, opacity;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Thumbnail Frame with Glassmorphic Border */
+.orbit-thumbnail-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.3),
+    0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.orbit-item-wrap:hover .orbit-thumbnail-frame,
+.orbit-item-wrap.is-active-hover .orbit-thumbnail-frame {
+  border-color: #ffb380;
+  box-shadow: 
+    0 16px 36px rgba(217, 119, 54, 0.4),
+    0 0 0 4px rgba(255, 179, 128, 0.35);
+}
+
+.orbit-thumbnail-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.orbit-item-wrap:hover .orbit-thumbnail-img {
+  transform: scale(1.1);
+}
+
+.orbit-thumb-glare {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* Tooltip on Hover */
+.orbit-tooltip-tag {
+  position: absolute;
+  top: 100%;
+  margin-top: 10px;
+  background: rgba(16, 45, 49, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #ffffff;
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 179, 128, 0.35);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.orbit-tooltip-tag.tooltip-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tooltip-icon {
+  font-size: 0.9rem;
+}
+
+.tooltip-text {
+  color: #ffecd9;
+}
+
+/* Center Heart Badge in Hero */
+.orbit-hero-center-badge {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 1.25rem 1.6rem;
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  max-width: 220px;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.orbit-hero-center-badge:hover {
+  transform: scale(1.05);
+  box-shadow: 
+    0 24px 60px rgba(0, 0, 0, 0.4),
+    0 0 0 3px #ffb380;
+}
+
+.orbit-center-icon-wrap {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary-light) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(19, 56, 60, 0.3);
+}
+
+.orbit-center-heart {
+  font-size: 1.25rem;
+  color: #ff9858;
+}
+
+.orbit-center-pulse {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid rgba(217, 119, 54, 0.4);
+  animation: centerPulse 2.5s infinite ease-out;
+}
+
+@keyframes centerPulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.orbit-hero-center-badge strong {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: var(--color-primary-dark);
+  line-height: 1.15;
+}
+
+.orbit-hero-center-badge small {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-verified-text);
+  background: var(--color-verified-bg);
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .orbit-container {
+    height: 360px;
+  }
+  .orbit-hero-center-badge {
+    padding: 0.9rem 1.1rem;
+    max-width: 170px;
+  }
+  .orbit-center-icon-wrap {
+    width: 36px;
+    height: 36px;
+  }
+  .orbit-hero-center-badge strong {
+    font-size: 0.95rem;
+  }
+}

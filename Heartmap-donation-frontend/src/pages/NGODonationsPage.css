@@ -1,0 +1,415 @@
+.ngo-donations-page {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 4rem 2rem 6rem;
+  color: #173b3f;
+}
+
+.ngo-donations-header {
+  margin-bottom: 2.5rem;
+}
+
+.ngo-donations-header h1 {
+  font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+  line-height: 1.1;
+  margin-top: 0.4rem;
+  margin-bottom: 0.8rem;
+  color: #173b3f;
+}
+
+.ngo-donations-subtitle {
+  color: #627574;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  max-width: 780px;
+}
+
+/* Controls / Filters */
+.ngo-donations-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  padding: 1.4rem;
+  background: #fffdf8;
+  border: 1px solid #dce3d8;
+  border-radius: 4px;
+  margin-bottom: 2rem;
+}
+
+.search-box-wrapper {
+  flex: 1 1 300px;
+}
+
+.ngo-search-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #c2d0c5;
+  border-radius: 4px;
+  font: inherit;
+  font-size: 0.95rem;
+  background: #ffffff;
+  color: #173b3f;
+  transition: border-color 0.15s ease;
+}
+
+.ngo-search-input:focus {
+  outline: none;
+  border-color: #173b3f;
+}
+
+.filters-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.filter-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #365652;
+}
+
+.filter-item select {
+  padding: 0.65rem 0.9rem;
+  border: 1px solid #c2d0c5;
+  border-radius: 4px;
+  background: #ffffff;
+  font: inherit;
+  color: #173b3f;
+}
+
+.btn-refresh {
+  padding: 0.65rem 1rem;
+  background: transparent;
+  border: 1px solid #c2d0c5;
+  border-radius: 4px;
+  color: #173b3f;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.btn-refresh:hover {
+  background: #f2eee4;
+}
+
+.btn-refresh:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+
+/* Status States */
+.ngo-donations-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 2rem;
+  color: #627574;
+  font-size: 1.1rem;
+  gap: 1rem;
+}
+
+.spinner-dot {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #dce3d8;
+  border-top-color: #173b3f;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ngo-donations-error {
+  padding: 2rem;
+  background: #fbe8e2;
+  color: #9a3d2b;
+  border-radius: 4px;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.ngo-donations-error button {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background: #9a3d2b;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.ngo-donations-empty {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: #fffdf8;
+  border: 1px dashed #c2d0c5;
+  border-radius: 4px;
+  margin: 2rem 0;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+.ngo-donations-empty h2 {
+  font-size: 1.6rem;
+  color: #173b3f;
+  margin-bottom: 0.5rem;
+}
+
+.ngo-donations-empty p {
+  color: #627574;
+  max-width: 500px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.5;
+}
+
+.btn-reset-filters {
+  padding: 0.7rem 1.5rem;
+  background: #173b3f;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Results Grid */
+.results-count {
+  font-size: 0.95rem;
+  color: #627574;
+  margin-bottom: 1.2rem;
+}
+
+.ngo-donations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.8rem;
+}
+
+.donation-card {
+  background: #ffffff;
+  border: 1px solid #dce3d8;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.donation-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(23, 59, 63, 0.08);
+}
+
+.card-media-gallery {
+  position: relative;
+  height: 200px;
+  background: #f2eee4;
+  overflow: hidden;
+}
+
+.card-main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-count-badge {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(23, 59, 63, 0.8);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+}
+
+.card-media-placeholder {
+  height: 120px;
+  background: linear-gradient(135deg, #f2eee4, #e2e8df);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #627574;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.card-body {
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.8rem;
+}
+
+.card-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.badge-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 3px;
+  letter-spacing: 0.02em;
+}
+
+.badge-pill.badge-type {
+  background: #eef2ed;
+  color: #173b3f;
+}
+
+.badge-pill.badge-condition {
+  background: #faf7ee;
+  color: #776b58;
+  border: 1px solid #e5dec9;
+  text-transform: capitalize;
+}
+
+.badge-pill.badge-pickup-yes {
+  background: #e4f0e4;
+  color: #2e6037;
+}
+
+.badge-pill.badge-pickup-no {
+  background: #f0f4f8;
+  color: #486581;
+}
+
+.card-title {
+  font-size: 1.3rem;
+  line-height: 1.25;
+  color: #173b3f;
+  margin: 0;
+}
+
+.card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0.6rem 0.8rem;
+  background: #fbfaf5;
+  border: 1px solid #eef2ed;
+  border-radius: 4px;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.88rem;
+}
+
+.meta-label {
+  color: #627574;
+  font-weight: 600;
+}
+
+.meta-value {
+  color: #173b3f;
+  font-weight: 700;
+}
+
+.card-desc {
+  font-size: 0.92rem;
+  color: #4a635d;
+  line-height: 1.55;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-location {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  font-size: 0.86rem;
+  color: #627574;
+}
+
+.card-location .loc-icon {
+  font-size: 0.95rem;
+}
+
+.card-extra-thumbnails {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 0.2rem;
+}
+
+.extra-thumb {
+  width: 48px;
+  height: 48px;
+  border-radius: 3px;
+  object-fit: cover;
+  border: 1px solid #dce3d8;
+}
+
+.card-footer {
+  margin-top: auto;
+  padding-top: 0.8rem;
+  border-top: 1px solid #eef2ed;
+}
+
+.card-donor-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.82rem;
+  color: #627574;
+}
+
+.card-donor-info strong {
+  color: #173b3f;
+}
+
+@media (max-width: 768px) {
+  .ngo-donations-page {
+    padding: 3rem 1.25rem 4rem;
+  }
+
+  .ngo-donations-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filters-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-item {
+    justify-content: space-between;
+  }
+
+  .ngo-donations-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
